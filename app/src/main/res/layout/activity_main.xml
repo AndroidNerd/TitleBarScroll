@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context="com.example.nerd.rx_retrofit_okhttp.MainActivity">
 
-    <ScrollView
+    <android.support.v4.widget.NestedScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -78,38 +78,77 @@
                 android:layout_height="wrap_content"
                 android:text="useless" />
 
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="useless" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="useless" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="useless" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="useless" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="useless" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="useless" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="useless" />
+
         </LinearLayout>
-    </ScrollView>
+    </android.support.v4.widget.NestedScrollView>
+
     <LinearLayout
         android:id="@+id/ll_head"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="22dp"
-        android:orientation="horizontal"
+        android:background="@color/colorPrimary"
         android:gravity="center_vertical"
-        android:background="@color/colorPrimary">
+        android:orientation="horizontal"
+        android:paddingTop="22dp">
+
         <TextView
             android:id="@+id/tv_scan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:text="扫一扫"
-            android:textSize="10sp"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white"
+            android:textSize="10sp" />
+
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_margin="5dp"
-            android:hint="input something"
-            android:background="@color/white"/>
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:hint="input something" />
+
         <TextView
             android:id="@+id/tv_gift"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:text="我的礼包"
-            android:textSize="10sp"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white"
+            android:textSize="10sp" />
     </LinearLayout>
 </RelativeLayout>
