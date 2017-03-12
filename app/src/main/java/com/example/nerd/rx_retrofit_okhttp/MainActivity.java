@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.example.nerd.rx_retrofit_okhttp.activity.GankActivity;
 import com.example.nerd.rx_retrofit_okhttp.activity.MovieActivity;
 import com.example.nerd.rx_retrofit_okhttp.base.BaseActivity;
+import com.example.nerd.rx_retrofit_okhttp.utils.DensityUtil;
 import com.recker.flybanner.FlyBanner;
 
 import java.util.ArrayList;
@@ -49,6 +50,8 @@ public class MainActivity extends BaseActivity implements NestedScrollView.OnScr
         tv_gift.setCompoundDrawables(null, gitDrawable, null, null);
 
         ll_head.getBackground().setAlpha(0);
+        //给头部添加状态栏高度的padding，事实证明不能写22，要DensityUtil.dip2px转换
+        ll_head.setPadding(0, getStatusHeight(), 0, 0);
         scrollView.setOnScrollChangeListener(this);
 
         //加载本地
@@ -91,5 +94,29 @@ public class MainActivity extends BaseActivity implements NestedScrollView.OnScr
         } else {
             ll_head.getBackground().setAlpha(255);
         }
+    }
+
+    public int getStatusHeight() {
+        //方法1：
+        int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
+        if (resourceId > 0) {
+            //根据资源ID获取响应的尺寸值
+            return getResources().getDimensionPixelSize(resourceId);
+        } else {
+            return DensityUtil.dip2px(this, 22);
+        }
+
+
+        /*//方法2：通过反射来获取
+        try {
+            Class<?> clazz = Class.forName("com.android.internal.R$dimen");
+            Object object = clazz.newInstance();
+            int height = Integer.parseInt(clazz.getField("status_bar_height")
+                    .get(object).toString());
+            return getResources().getDimensionPixelSize(height);
+        } catch (Exception e) {
+            //获取不到就来个通用值咯
+            return DensityUtil.dip2px(this,22);
+        }*/
     }
 }
