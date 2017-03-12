@@ -6,21 +6,110 @@
     android:layout_height="match_parent"
     tools:context="com.example.nerd.rx_retrofit_okhttp.MainActivity">
 
-    <com.recker.flybanner.FlyBanner
-        android:id="@+id/banner"
+    <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="200dp"/>
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btn_movie"
-        android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.recker.flybanner.FlyBanner
+                android:id="@+id/banner"
+                android:layout_width="match_parent"
+                android:layout_height="200dp" />
+
+            <Button
+                android:id="@+id/btn_movie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="movie_btn" />
+
+            <Button
+                android:id="@+id/btn_gank"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="gank_btn" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="useless" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="useless" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="useless" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="useless" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="useless" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="useless" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="useless" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="useless" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="useless" />
+
+        </LinearLayout>
+    </ScrollView>
+    <LinearLayout
+        android:id="@+id/ll_head"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="movie_btn"
-        android:layout_below="@id/banner"/>
-    <Button
-        android:id="@+id/btn_gank"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="gank_btn"
-        android:layout_below="@id/btn_movie"/>
+        android:paddingTop="22dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@color/colorPrimary">
+        <TextView
+            android:id="@+id/tv_scan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="扫一扫"
+            android:textSize="10sp"
+            android:textColor="@color/white"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="5dp"
+            android:hint="input something"
+            android:background="@color/white"/>
+        <TextView
+            android:id="@+id/tv_gift"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="我的礼包"
+            android:textSize="10sp"
+            android:textColor="@color/white"/>
+    </LinearLayout>
 </RelativeLayout>
