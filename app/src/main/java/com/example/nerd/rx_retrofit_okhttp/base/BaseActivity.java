@@ -1,12 +1,13 @@
 package com.example.nerd.rx_retrofit_okhttp.base;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.WindowManager;
+
+import com.example.nerd.rx_retrofit_okhttp.utils.DensityUtil;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -60,9 +61,26 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
     }
     public int getStatusBarHeight(Context context) {
-        Resources resources = context.getResources();
-        int resourcesId = resources.getIdentifier("status_bar_height", "dimen", "android");
-        int height = resources.getDimensionPixelSize(resourcesId);
-        return height;
+        //方法1：
+        int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
+        if (resourceId > 0) {
+            //根据资源ID获取响应的尺寸值
+            return getResources().getDimensionPixelSize(resourceId);
+        } else {
+            return DensityUtil.dip2px(this, 22);
+        }
+
+
+        /*//方法2：通过反射来获取
+        try {
+            Class<?> clazz = Class.forName("com.android.internal.R$dimen");
+            Object object = clazz.newInstance();
+            int height = Integer.parseInt(clazz.getField("status_bar_height")
+                    .get(object).toString());
+            return getResources().getDimensionPixelSize(height);
+        } catch (Exception e) {
+            //获取不到就来个通用值咯
+            return DensityUtil.dip2px(this,22);
+        }*/
     }
 }

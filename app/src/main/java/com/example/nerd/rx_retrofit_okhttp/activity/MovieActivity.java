@@ -47,7 +47,7 @@ public class MovieActivity extends BaseActivity {
 
     @Override
     protected void initSet() {
-        if (Build.VERSION.SDK_INT >= 19) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             findViewById(R.id.app_bar).setFitsSystemWindows(false);
             findViewById(R.id.album_art).setFitsSystemWindows(false);
             Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);

@@ -7,7 +7,7 @@
     <View android:id="@+id/v_status"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="@color/colorPrimary"
+        android:background="@color/red"
         />
 
     <android.support.design.widget.CoordinatorLayout
@@ -25,8 +25,8 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="@color/colorPrimary"
                 android:title="@string/movie_list"
+                android:background="@color/red"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior"
                 app:layout_scrollFlags="scroll|enterAlways"
                 app:navigationIcon="@mipmap/navigation_back_white"

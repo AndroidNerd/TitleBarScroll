@@ -6,28 +6,147 @@
     android:layout_height="match_parent"
     tools:context="com.example.nerd.rx_retrofit_okhttp.MainActivity">
 
-    <com.recker.flybanner.FlyBanner
-        android:id="@+id/banner"
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="200dp"/>
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btn_movie"
-        android:layout_width="wrap_content"
+            <com.recker.flybanner.FlyBanner
+                android:id="@+id/banner"
+                android:layout_width="match_parent"
+                android:layout_height="200dp" />
+
+            <Button
+                android:id="@+id/btn_movie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="movie_btn" />
+
+            <Button
+                android:id="@+id/btn_movie2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="movie_btn2"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="useless" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="useless" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="useless" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="useless" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="useless" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="useless" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="useless" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="useless" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="useless" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="useless" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="useless" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="useless" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="useless" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="useless" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="useless" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="useless" />
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+    <LinearLayout
+        android:id="@+id/ll_head"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="movie_btn"
-        android:layout_below="@id/banner"/>
-    <Button
-        android:id="@+id/btn_movie2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="movie_btn2"
-        android:layout_below="@id/btn_movie"/>
-    <Button
-        android:id="@+id/btn_gank"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="gank_btn"
-        android:layout_below="@id/btn_movie2"
-        android:visibility="gone"/>
+        android:background="@color/colorPrimary"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_scan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="扫一扫"
+            android:textColor="@color/white"
+            android:textSize="10sp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:hint="input something" />
+
+        <TextView
+            android:id="@+id/tv_gift"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="我的礼包"
+            android:textColor="@color/white"
+            android:textSize="10sp" />
+    </LinearLayout>
 </RelativeLayout>

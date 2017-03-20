@@ -2,7 +2,6 @@ package com.example.nerd.rx_retrofit_okhttp.activity;
 
 import android.graphics.Rect;
 import android.os.Build;
-import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -43,14 +42,14 @@ public class MovieActivity2 extends BaseActivity {
 
     @Override
     protected void initSet() {
-        if (Build.VERSION.SDK_INT >= 19) {
-            View v_status = (View) findViewById(R.id.v_status);
+        View v_status = (View) findViewById(R.id.v_status);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) v_status.getLayoutParams();
             layoutParams.height += getStatusBarHeight(this);
             v_status.setLayoutParams(layoutParams);
             v_status.setPadding(0, getStatusBarHeight(this), 0, 0);
         }
-
+//        v_status.getBackground().setAlpha(255);
         mMovieLoader = new MovieLoader();
 
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -60,6 +59,7 @@ public class MovieActivity2 extends BaseActivity {
             }
         });
         mToolbar.setTitle(R.string.movie_list);
+//        mToolbar.getBackground().setAlpha(255);
 
         LinearLayoutManager manager = new LinearLayoutManager(this);
         manager.setOrientation(LinearLayoutManager.VERTICAL);

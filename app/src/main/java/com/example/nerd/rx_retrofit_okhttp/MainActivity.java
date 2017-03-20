@@ -1,10 +1,14 @@
 package com.example.nerd.rx_retrofit_okhttp;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
+import android.support.v4.widget.NestedScrollView;
 import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.nerd.rx_retrofit_okhttp.activity.GankActivity;
 import com.example.nerd.rx_retrofit_okhttp.activity.MovieActivity;
 import com.example.nerd.rx_retrofit_okhttp.activity.MovieActivity2;
 import com.example.nerd.rx_retrofit_okhttp.base.BaseActivity;
@@ -16,9 +20,19 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements NestedScrollView.OnScrollChangeListener {
     @BindView(R.id.banner)
     FlyBanner banner;
+
+    @BindView(R.id.scrollView)
+    NestedScrollView scrollView;
+
+    @BindView(R.id.ll_head)
+    LinearLayout ll_head;
+    @BindView(R.id.tv_scan)
+    TextView tv_scan;
+    @BindView(R.id.tv_gift)
+    TextView tv_gift;
 
     @Override
     public int getContentViewId() {
@@ -27,6 +41,21 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initSet() {
+        Drawable scanDrawable = getResources().getDrawable(R.drawable.scan);
+        scanDrawable.setBounds(0, 0, 40, 40);
+        tv_scan.setCompoundDrawables(null, scanDrawable, null, null);
+
+        Drawable gitDrawable = getResources().getDrawable(R.drawable.gift);
+        gitDrawable.setBounds(0, 0, 40, 40);
+        tv_gift.setCompoundDrawables(null, gitDrawable, null, null);
+
+        ll_head.getBackground().setAlpha(0);
+        //给头部添加状态栏高度的padding，事实证明不能写22，要DensityUtil.dip2px转换
+        if (Build.VERSION.SDK_INT >= 19) {
+            ll_head.setPadding(0, getStatusBarHeight(this), 0, 0);
+        }
+        scrollView.setOnScrollChangeListener(this);
+
         //加载本地
         List<Integer> images = new ArrayList<>();
         images.add(R.drawable.headbg);
@@ -48,7 +77,7 @@ public class MainActivity extends BaseActivity {
 
     }
 
-    @OnClick({R.id.btn_movie, R.id.btn_movie2, R.id.btn_gank})
+    @OnClick({R.id.btn_movie, R.id.btn_movie2})
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_movie:
@@ -57,9 +86,16 @@ public class MainActivity extends BaseActivity {
             case R.id.btn_movie2:
                 startActivity(new Intent(this, MovieActivity2.class));
                 break;
-            case R.id.btn_gank:
-                startActivity(new Intent(this, GankActivity.class));
-                break;
+        }
+    }
+
+    @Override
+    public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+        if (scrollY < (banner.getHeight()-ll_head.getHeight())) {
+            float rate = (float) scrollY / (banner.getHeight()-ll_head.getHeight());
+            ll_head.getBackground().setAlpha((int) (rate * 256));
+        } else {
+            ll_head.getBackground().setAlpha(255);
         }
     }
 }
