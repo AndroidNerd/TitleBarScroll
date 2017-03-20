@@ -16,6 +16,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.MovieActivity"/>
+        <activity android:name=".activity.MovieActivity2"/>
         <activity android:name=".activity.GankActivity"/>
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>

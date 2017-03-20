@@ -2,4 +2,9 @@
     <string name="app_name">Rx_Retrofit_OKHttp</string>
     <string name="movie_list">电影列表</string>
     <string name="award_list">福利别表</string>
+    <string name="main_home">最新</string>
+    <string name="main_category">分类浏览</string>
+    <string name="main_videos">搞笑视频</string>
+    <string name="main_reading">闲读</string>
+    <string name="main_welfare">福利</string>
 </resources>
