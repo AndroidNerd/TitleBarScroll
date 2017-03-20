@@ -1,7 +1,5 @@
 package com.example.nerd.rx_retrofit_okhttp.activity;
 
-import android.content.Context;
-import android.content.res.Resources;
 import android.graphics.Rect;
 import android.os.Build;
 import android.support.design.widget.CollapsingToolbarLayout;
@@ -9,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.LinearLayout;
 
 import com.example.nerd.rx_retrofit_okhttp.R;
 import com.example.nerd.rx_retrofit_okhttp.base.BaseActivity;
@@ -39,21 +38,18 @@ public class MovieActivity2 extends BaseActivity {
 
     @Override
     public int getContentViewId() {
-        return R.layout.activity_movie;
+        return R.layout.activity_movie2;
     }
 
     @Override
     protected void initSet() {
         if (Build.VERSION.SDK_INT >= 19) {
-            findViewById(R.id.app_bar).setFitsSystemWindows(false);
-            findViewById(R.id.album_art).setFitsSystemWindows(false);
-            Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-            CollapsingToolbarLayout.LayoutParams layoutParams = (CollapsingToolbarLayout.LayoutParams) toolbar.getLayoutParams();
+            View v_status = (View) findViewById(R.id.v_status);
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) v_status.getLayoutParams();
             layoutParams.height += getStatusBarHeight(this);
-            toolbar.setLayoutParams(layoutParams);
-            toolbar.setPadding(0, getStatusBarHeight(this), 0, 0);
+            v_status.setLayoutParams(layoutParams);
+            v_status.setPadding(0, getStatusBarHeight(this), 0, 0);
         }
-
 
         mMovieLoader = new MovieLoader();
 
@@ -74,14 +70,6 @@ public class MovieActivity2 extends BaseActivity {
         rclv.setAdapter(mMovieAdapter);
 
         getMovieList();
-    }
-
-
-    public static int getStatusBarHeight(Context context) {
-        Resources resources = context.getResources();
-        int resourcesId = resources.getIdentifier("status_bar_height", "dimen", "android");
-        int height = resources.getDimensionPixelSize(resourcesId);
-        return height;
     }
 
     /**

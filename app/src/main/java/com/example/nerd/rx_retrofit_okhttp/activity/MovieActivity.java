@@ -79,14 +79,6 @@ public class MovieActivity extends BaseActivity {
         getMovieList();
     }
 
-
-    public static int getStatusBarHeight(Context context) {
-        Resources resources = context.getResources();
-        int resourcesId = resources.getIdentifier("status_bar_height", "dimen", "android");
-        int height = resources.getDimensionPixelSize(resourcesId);
-        return height;
-    }
-
     /**
      * getMovies
      */

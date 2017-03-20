@@ -21,13 +21,13 @@
         android:id="@+id/btn_movie2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="movie_btn"
-        android:layout_below="@id/banner"/>
+        android:text="movie_btn2"
+        android:layout_below="@id/btn_movie"/>
     <Button
         android:id="@+id/btn_gank"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="gank_btn"
-        android:layout_below="@id/btn_movie"
+        android:layout_below="@id/btn_movie2"
         android:visibility="gone"/>
 </RelativeLayout>

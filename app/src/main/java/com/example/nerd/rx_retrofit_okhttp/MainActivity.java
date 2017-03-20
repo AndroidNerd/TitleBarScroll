@@ -56,6 +56,7 @@ public class MainActivity extends BaseActivity {
                 break;
             case R.id.btn_movie2:
                 startActivity(new Intent(this, MovieActivity2.class));
+                break;
             case R.id.btn_gank:
                 startActivity(new Intent(this, GankActivity.class));
                 break;

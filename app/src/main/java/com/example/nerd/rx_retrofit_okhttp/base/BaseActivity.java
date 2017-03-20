@@ -1,5 +1,7 @@
 package com.example.nerd.rx_retrofit_okhttp.base;
 
+import android.content.Context;
+import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -56,5 +58,11 @@ public abstract class BaseActivity extends AppCompatActivity {
         if (mCompositeSubscription != null) {
             mCompositeSubscription.unsubscribe();
         }
+    }
+    public int getStatusBarHeight(Context context) {
+        Resources resources = context.getResources();
+        int resourcesId = resources.getIdentifier("status_bar_height", "dimen", "android");
+        int height = resources.getDimensionPixelSize(resourcesId);
+        return height;
     }
 }
